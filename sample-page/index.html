@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Web Page</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
+</head>
+<body>
+	<div class="section">
+		<h1 style="color: white;">jQuery Intro by Ray</h1>
+		<div class="buttons">
+			<button class="btn" id="btn1" for="panel1">#btn1</button>
+			<button class="btn" id="btn2" for="panel2">#btn2</button>
+			<button class="btn" id="btn3" for="panel3">#btn3</button>
+			<button class="btn" id="btn4" for="panel4">#btn4</button>
+		</div>
+	</div>
+
+	<div class="panels">
+		<div class="panel" id="panel1">
+			<div class="panel-header"><h3>#panel1</h3></div>
+			<div class="panel-content"><p>content</p></div>
+		</div>
+		<div class="panel" id="panel2">
+			<div class="panel-header"><h3>#panel2</h3></div>
+			<div class="panel-content"><p>content</p></div>
+		</div>
+		<div class="panel" id="panel3">
+			<div class="panel-header"><h3>#panel3</h3></div>
+			<div class="panel-content"><p>content</p></div>
+		</div>
+		<div class="panel" id="panel4">
+			<div class="panel-header"><h3>#panel4</h3></div>
+			<div class="panel-content"><p>content</p></div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		$(function() {
+			// $(".section h1").text("jQuery is Fun!")
+			//Setting event
+			$('.button').on('click', function() {
+				let panelId = $(this).attr("for")
+				$("#"+panelId).toggle(300)
+				$("#"+panelId+" .panel-content").text("content")
+			})
+			// $('.2button').on('click', function() {
+			// 	let panelId = $(this).attr("for")
+			// 	$("#"+panelId).attr('img', panelId +'.jpg')
+			// })
+
+			// Mouse over
+			$('.panel').on('mouseover', function() {
+				let panelId = $(this).attr("id")
+				$("#"+panelId+" .panel-content").text("You moved your mouse over this element")
+			})
+			$('.panel').on('mouseleave', function() {
+				let panelId = $(this).attr("id")
+				$("#"+panelId+" .panel-content").text("content")
+			})
+		})
+	</script>
+</body>
+</html>
